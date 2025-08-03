@@ -3,3 +3,6 @@ numpy>=1.23.0
 faiss-cpu        # ベクトル検索用（メモリ強化時に）
 pytest>=7.0.0    # テスト用
 dotenv
+requests
+yfinance>=0.2.27
+pandas>=1.5.0

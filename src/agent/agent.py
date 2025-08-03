@@ -22,6 +22,19 @@ class Agent:
         print("Goodbye!")
         break
 
+      if tag_match := re.match(r"\[TOOL\] (\w+):(.+)", user_input):
+        tool, arg = tag_match.groups()
+        if tool == "stock_price":
+          from tools.stock_tool import fetch_stock_price
+          try:
+            price = fetch_stock_price(arg.strip())
+            print(f"Agent (tool): {arg.strip()} の株価は {price} USD です。")
+          except Exception as e:
+            print(f"Agent (tool error): {e}")
+        else:
+          print(f"Agent: Unknown tool '{tool}'")
+        continue
+
       self.history.append({"role": "user", "content": USER.format(text=user_input)})
       result = self.chat()
 
