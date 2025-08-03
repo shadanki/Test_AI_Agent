@@ -1,0 +1,5 @@
+openai>=0.27.0
+numpy>=1.23.0
+faiss-cpu        # ベクトル検索用（メモリ強化時に）
+pytest>=7.0.0    # テスト用
+dotenv
